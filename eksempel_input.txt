@@ -1,0 +1,55 @@
+31.01.2022, 23:56:26, MC-HOVSETER, 5032, Detektor 6O1 ID: 161, 6O1  161  DCT, Canceled, 47 Hovseterhjemmet Natt 6, 6O1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86916
+31.01.2022, 23:56:20, MC-HOVSETER, 5032, Detektor 6O1 ID: 161, 6O1  161  DCT, Done, 47 Hovseterhjemmet Natt 6, 6O1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86910
+31.01.2022, 23:54:37, MC-HOVSETER, 2957, Anrop 428, 428, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 2957, 428, 428, 61F868A7
+31.01.2022, 23:51:54, MC-HOVSETER, 5079, Detektor 1B1 Avstilling, Alarm_on_success_5004, Done, 60 Avstilling 1B, 1B1;;;;;Sensor;;;6, 1B1;;;;;Sensor;;, 1B1;;;;;Sensor;;, 61F86808
+31.01.2022, 23:51:28, MC-HOVSETER, 3031, Borte 457, 457, Canceled, Empty group, No message for alarm 3031, 457, 457, 61F867EE
+31.01.2022, 23:51:27, MC-HOVSETER, 5004, Detektor 1B1 ID: 105, 105, Canceled, 42 Hovseterhjemmet Natt 1, 105;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F867EB
+31.01.2022, 23:51:26, MC-HOVSETER, 3016, Tilstede 457, 457, Canceled, Empty group, No message for alarm 3016, 457, 457, 61F867ED
+31.01.2022, 23:51:24, MC-HOVSETER, 5004, Detektor 1B1 ID: 105, 105, Done, 42 Hovseterhjemmet Natt 1, 105;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F867E8
+31.01.2022, 23:51:01, MC-HOVSETER, 2957, Anrop 428, 428, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 2957, 428, 428, 61F867CF
+31.01.2022, 23:50:36, MC-HOVSETER, 3031, Borte 457, 457, Canceled, Empty group, No message for alarm 3031, 457, 457, 61F867BB
+31.01.2022, 23:50:35, MC-HOVSETER, 3016, Tilstede 457, 457, Canceled, Empty group, No message for alarm 3016, 457, 457, 61F867BA
+31.01.2022, 23:49:01, MC-HOVSETER, 3046, Anrop 457, 457, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 3046, 457, 457, 61F86756
+31.01.2022, 23:48:50, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F8674E
+31.01.2022, 23:48:49, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Escalated & Done, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F8674F
+31.01.2022, 23:48:31, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F8673C
+31.01.2022, 23:48:31, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F8673B
+31.01.2022, 23:48:24, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86736
+31.01.2022, 23:48:23, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86734
+31.01.2022, 23:48:20, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86730
+31.01.2022, 23:48:20, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86731
+31.01.2022, 23:48:10, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86727
+31.01.2022, 23:48:10, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86726
+31.01.2022, 23:47:56, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86719
+31.01.2022, 23:47:56, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F8671A
+31.01.2022, 23:47:52, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Escalated & Done, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86715
+31.01.2022, 23:47:52, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F86714
+31.01.2022, 23:47:26, MC-HOVSETER, 3125, Borte 417, 417, Canceled, Empty group, No message for alarm 3125, 417, 417, 61F866FB
+31.01.2022, 23:47:25, MC-HOVSETER, 2957, Anrop 428, 428, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 2957, 428, 428, 61F866F7
+31.01.2022, 23:47:23, MC-HOVSETER, 3111, Tilstede 417, 417, Canceled, Empty group, No message for alarm 3111, 417, 417, 61F866FA
+31.01.2022, 23:47:02, MC-HOVSETER, 3139, Anrop 417, 417, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 3139, 417, 417, 61F866DF
+31.01.2022, 23:46:38, MC-HOVSETER, 5105, Detektor 6O1 Avstilling, Alarm_on_success_5032, Done, 76 Avstilling 6O, 6O1;;;;;Sensor;;;6, 6O1;;;;;Sensor;;, 6O1;;;;;Sensor;;, 61F866CC
+31.01.2022, 23:46:22, MC-HOVSETER, 5032, Detektor 6O1 ID: 161, 6O1  161  DCT, Done, 47 Hovseterhjemmet Natt 6, 6O1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F866BA
+31.01.2022, 23:45:25, MC-HOVSETER, 3046, Anrop 457, 457, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 3046, 457, 457, 61F8667E
+31.01.2022, 23:43:49, MC-HOVSETER, 2957, Anrop 428, 428, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 2957, 428, 428, 61F8661F
+31.01.2022, 23:43:26, MC-HOVSETER, 3139, Anrop 417, 417, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 3139, 417, 417, 61F86607
+31.01.2022, 23:39:50, MC-HOVSETER, 3139, Anrop 417, 417, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 3139, 417, 417, 61F8652F
+31.01.2022, 23:36:14, MC-HOVSETER, 3139, Anrop 417, 417, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 3139, 417, 417, 61F86457
+31.01.2022, 23:35:03, MC-HOVSETER, 4000, Borte 703, 703, Canceled, Empty group, No message for alarm 4000, 703, 703, 61F86416
+31.01.2022, 23:35:02, MC-HOVSETER, 3988, Tilstede 703, 703, Canceled, Empty group, No message for alarm 3988, 703, 703, 61F86415
+31.01.2022, 23:33:48, MC-HOVSETER, 5101, Detektor 1H3 Avstilling, Alarm_on_success_5028, Done, 61 Avstilling 1H, 4B2;;;;;Sensor;;;6, 4B2;;;;;Sensor;;, 4B2;;;;;Sensor;;, 61F863CA
+31.01.2022, 23:32:56, MC-HOVSETER, 2618, Tilstede 329, 329, Canceled, Empty group, No message for alarm 2618, 329, 329, 61F86397
+31.01.2022, 23:32:38, MC-HOVSETER, 3139, Anrop 417, 417, Done, 45 Hovseterhjemmet Natt 4, No message for alarm 3139, 417, 417, 61F8637F
+31.01.2022, 23:32:22, MC-HOVSETER, 4012, Anrop 703, 703, Done, 48 Hovseterhjemmet Natt 7, No message for alarm 4012, 703, 703, 61F8636F
+31.01.2022, 23:32:20, MC-HOVSETER, 3421, Borte 504, 504, Canceled, Empty group, No message for alarm 3421, 504, 504, 61F86373
+31.01.2022, 23:31:00, MC-HOVSETER, 2648, Anrop 329, 329, Done, 44 Hovseterhjemmet Natt 3, No message for alarm 2648, 329, 329, 61F8631E
+31.01.2022, 23:30:41, MC-HOVSETER, 5097, Detektor 3F1 Avstilling, Alarm_on_success_5022, Done, 89 Felles grp 3 avstilling, 3F1;;;;;Sensor;;;6, 3F1;;;;;Sensor;;, 3F1;;;;;Sensor;;, 61F8630F
+31.01.2022, 23:30:04, MC-HOVSETER, 5022, Detektor 3F1 ID: 151, 3F1  151  DCT, Canceled, 44 Hovseterhjemmet Natt 3, 3F1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862E8
+31.01.2022, 23:29:59, MC-HOVSETER, 5022, Detektor 3F1 ID: 151, 3F1  151  DCT, Canceled, 44 Hovseterhjemmet Natt 3, 3F1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862E3
+31.01.2022, 23:29:56, MC-HOVSETER, 5022, Detektor 3F1 ID: 151, 3F1  151  DCT, Canceled, 44 Hovseterhjemmet Natt 3, 3F1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862E0
+31.01.2022, 23:29:53, MC-HOVSETER, 5022, Detektor 3F1 ID: 151, 3F1  151  DCT, Canceled, 44 Hovseterhjemmet Natt 3, 3F1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862DD
+31.01.2022, 23:29:44, MC-HOVSETER, 5022, Detektor 3F1 ID: 151, 3F1  151  DCT, Canceled, 44 Hovseterhjemmet Natt 3, 3F1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862D4
+31.01.2022, 23:29:40, MC-HOVSETER, 5022, Detektor 3F1 ID: 151, 3F1  151  DCT, Canceled, 44 Hovseterhjemmet Natt 3, 3F1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862D0
+31.01.2022, 23:29:35, MC-HOVSETER, 5022, Detektor 3F1 ID: 151, 3F1  151  DCT, Canceled, 44 Hovseterhjemmet Natt 3, 3F1;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862C9
+31.01.2022, 23:29:33, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862CA
+31.01.2022, 23:29:32, MC-HOVSETER, 5074, Detektor 1B3 ID: 218, 1B3  218  DCT, Canceled, 42 Hovseterhjemmet Natt 1, 1B3;;;;;Sensor;;;4, Terminal alarm e, Terminal alarm e, 61F862C7
