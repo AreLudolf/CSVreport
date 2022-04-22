@@ -1,5 +1,1 @@
-# CSVreport
-
-Kommaseparert fil-leser.
-
-Python + SQLite 3
+Reading me, reading you
