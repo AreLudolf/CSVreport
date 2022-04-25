@@ -13,7 +13,7 @@ Tar outputen fra FileReader.py og skriver det inn i databasen.
 Oppretter sqlite3 database-fil og kobler til den.
 '''
 db_name = datetime.datetime.now()
-#oppretter filnavn som er dato og klokkeslett for å unngå duplikater og for å gjøre det enkelt å finne igjen tidligere databaser
+#oppretter filnavn som er dato og klokkeslett for å unngå duplikater og for å gjøre det enkelt å finne igjen tidligere databaser osv
 print(db_name.strftime("%d%m%Y_%H-%M-%S"))
 conn = sqlite3.connect(db_name.strftime("%d%m%Y_%H-%M-%S")+".db")
 print("Opened database successfully")
