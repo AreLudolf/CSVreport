@@ -8,7 +8,7 @@ Tester alle funksjonene i samme fil foreløpig, ikke sikkert det må deles opp h
 bare blir main.
 
 Tar outputen fra FileReader.py og skriver det inn i databasen.
-(det vil si, foreløpig gjør den det ikke det, som du ser er values til tabellen hardkodet.)
+(det vil si, foreløpig gjør den det ikke det, som du ser er values til tabellen hardkodet eksempel-values fra et eksempel jeg fant på interveebs.)
 
 Oppretter sqlite3 database-fil og kobler til den.
 '''
