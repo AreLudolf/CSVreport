@@ -19,7 +19,7 @@ conn = sqlite3.connect(db_name.strftime("%d%m%Y_%H-%M-%S")+".db")
 print("Opened database successfully")
 
 FileReader.fileread()
-#Her kommer koden som legger output fra FileReader inn i databasen
+#Her kommer koden som legger output fra FileReader inn i databasen 
 
 conn.execute('''CREATE TABLE ALARM
          (ID INT PRIMARY KEY     NOT NULL,
