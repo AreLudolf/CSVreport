@@ -3,7 +3,15 @@
 import sqlite3
 import datetime
 import FileReader
+'''
+Tester alle funksjonene i samme fil foreløpig, ikke sikkert det må deles opp heller, kanskje dette
+bare blir main.
 
+Tar outputen fra FileReader.py og skriver det inn i databasen.
+(det vil si, foreløpig gjør den det ikke det, som du ser er values til tabellen hardkodet.)
+
+Oppretter sqlite3 database-fil og kobler til den.
+'''
 db_name = datetime.datetime.now()
 
 print(db_name.strftime("%d%m%Y_%H-%M-%S"))
