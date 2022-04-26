@@ -24,30 +24,16 @@ cursor = conn.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS ALARM (%s)" % ", ".join(tablerows))
 print("Table created successfully")
 
-#for line in fileread execute(insert into ({}))
-delim = ", "
-rowstring = delim.join(tablerows)
+rowstring = ", ".join(tablerows)
+values = "?,?,?,?,?,?,?,?,?,?,?,?"
+
+"""
+Values midlertidig hardkodet siden denne ikke virker:
 values = ','.join(['?']) * len(tablerows)
+"""
+print(values)
 print(rowstring)
-conn.execute("INSERT INTO ALARM (%s)" % rowstring +
-             "VALUES (%s)" % values, rowstring)
+cursor.execute('''INSERT INTO ALARM (%s) VALUES (%s);''' % (rowstring, values), tablerows)
 
-#','.join(['?'] * len(tablerows)
-
-cursor.commit()
-cursor = conn.execute("SELECT alarmID, alarmName, status from ALARM")
-
-
-
-'''
-sql = "select exists(SELECT * from USERS where PASSWORD = ? AND USERNAME = ?)"
-args = (var1,var2)
-cursor = database_connection.execute(sql, args)
-'''
-for row in cursor:
-    print("ID = ", row[0])
-    print("NAME = ", row[1])
-    print("STATUS = ", row[2], "\n")
-
-conn.close()
+cursor.close()
 print("Closed database")
