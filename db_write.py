@@ -3,43 +3,51 @@
 import sqlite3
 import datetime
 import FileReader
-'''
-Tester alle funksjonene i samme fil foreløpig, ikke sikkert det må deles opp heller, kanskje dette
-bare blir main.
 
-Tar outputen fra FileReader.py og skriver det inn i databasen.
-(det vil si, foreløpig gjør den det ikke det, som du ser er values til tabellen hardkodet eksempel-values fra et eksempel jeg fant på interveebs.)
+#hentes fra metadata på sikt
+tablerows = ['date', 'time', 'server', 'alarmID', 'alarmName', 'launchedBy', 'status', 'alarmGroup', 'txtMsg', 'dspMsg1', 'dspMsg2', 'alarmRef']
 
-Oppretter sqlite3 database-fil og kobler til den.
-'''
-db_name = datetime.datetime.now()
-#oppretter filnavn som er dato og klokkeslett for å unngå duplikater og for å gjøre det enkelt å finne igjen tidligere databaser osv
-print(db_name.strftime("%d%m%Y_%H-%M-%S"))
-conn = sqlite3.connect(db_name.strftime("%d%m%Y_%H-%M-%S")+".db")
+#Leser fil inn i line_list[]
+with open("eksempel_input.txt", "r", encoding="utf-8") as file:
+    # trenger sikkert ikke å definere variabelen utenfor for-løkka i python, men det skader ikke
+    line_list = []
+    for line in file:
+        line_list = [entry.strip() for entry in line.split(",")]
+
+#Filnavn = dato + klokkeslett
+dateandtime = datetime.datetime.now()
+dbname = (dateandtime.strftime("%d%m%Y_%H-%M-%S"))
+conn = sqlite3.connect(dateandtime.strftime(dbname)+".db")
 print("Opened database successfully")
 
-FileReader.fileread()
-#Her kommer koden som legger output fra FileReader inn i databasen 
-
-conn.execute('''CREATE TABLE ALARM
-         (ID INT PRIMARY KEY     NOT NULL,
-         NAME           TEXT    NOT NULL,
-         AGE            INT     NOT NULL,
-         ADDRESS        CHAR(50),
-         SALARY         REAL);''')
+cursor = conn.cursor()
+cursor.execute("CREATE TABLE IF NOT EXISTS ALARM (%s)" % ", ".join(tablerows))
 print("Table created successfully")
 
-conn.execute('''INSERT INTO ALARM (ID,NAME,AGE,ADDRESS,SALARY)
-VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00);
-    ''')
-conn.commit()
-cursor = conn.execute("SELECT id, name, address, salary from ALARM")
+#for line in fileread execute(insert into ({}))
+delim = ", "
+rowstring = delim.join(tablerows)
+values = ','.join(['?']) * len(tablerows)
+print(rowstring)
+conn.execute("INSERT INTO ALARM (%s)" % rowstring +
+             "VALUES (%s)" % values, rowstring)
 
+#','.join(['?'] * len(tablerows)
+
+cursor.commit()
+cursor = conn.execute("SELECT alarmID, alarmName, status from ALARM")
+
+
+
+'''
+sql = "select exists(SELECT * from USERS where PASSWORD = ? AND USERNAME = ?)"
+args = (var1,var2)
+cursor = database_connection.execute(sql, args)
+'''
 for row in cursor:
     print("ID = ", row[0])
     print("NAME = ", row[1])
-    print("ADDRESS = ", row[2])
-    print("SALARY = ", row[3], "\n")
+    print("STATUS = ", row[2], "\n")
 
 conn.close()
 print("Closed database")
