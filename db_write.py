@@ -2,17 +2,10 @@
 
 import sqlite3
 import datetime
-import FileReader
+#import FileReader
 
 #hentes fra metadata på sikt
 tablerows = ['date', 'time', 'server', 'alarmID', 'alarmName', 'launchedBy', 'status', 'alarmGroup', 'txtMsg', 'dspMsg1', 'dspMsg2', 'alarmRef']
-
-#Leser fil inn i line_list[]
-with open("eksempel_input.txt", "r", encoding="utf-8") as file:
-    # trenger sikkert ikke å definere variabelen utenfor for-løkka i python, men det skader ikke
-    line_list = []
-    for line in file:
-        line_list = [entry.strip() for entry in line.split(",")]
 
 #Filnavn = dato + klokkeslett
 dateandtime = datetime.datetime.now()
@@ -24,16 +17,17 @@ cursor = conn.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS ALARM (%s)" % ", ".join(tablerows))
 print("Table created successfully")
 
-rowstring = ", ".join(tablerows)
-values = "?,?,?,?,?,?,?,?,?,?,?,?"
 
-"""
-Values midlertidig hardkodet siden denne ikke virker:
-values = ','.join(['?']) * len(tablerows)
-"""
-print(values)
-print(rowstring)
-cursor.execute('''INSERT INTO ALARM (%s) VALUES (%s);''' % (rowstring, values), tablerows)
 
+with open("eksempel_input.txt", "r", encoding="utf-8") as file:
+    line_list = []
+    for line in file:
+        line_list = [entry.strip() for entry in line.split(",")]
+        cursor.execute('''INSERT INTO ALARM (alarmRef) VALUES(?) ''', [line_list[11]])
+        conn.commit()
+        for i in range(len(line_list) - 1):
+            cursor.execute('''UPDATE ALARM SET (%s) = (?) WHERE alarmRef == ("%s");''' % (tablerows[i], line_list[11]), [line_list[i]])
+print("Entries added to database")
+conn.commit()
 cursor.close()
 print("Closed database")
