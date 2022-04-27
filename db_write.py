@@ -33,14 +33,12 @@ conn.commit()
 
 #hente ut fil uten canceled status med mindre det er tilstede og borte
 cursor.execute('''SELECT date, time, alarmName, status FROM ALARM WHERE status != "Canceled" OR alarmGroup = "Empty group"''')
-data = cursor.fetchall()
-print(data)
-file1 = open("output_" + dbname + ".csv", "a")
+queryResult = cursor.fetchall()
+outputFile = open("output_" + dbname + ".csv", "a")
 for row in data:
-    file1.write(', '.join(row) + '\n')
+    outputFile.write(', '.join(queryResult) + '\n')
 
-
-file1.close()
+outputFile.close()
 
 cursor.close()
 print("Closed database")
