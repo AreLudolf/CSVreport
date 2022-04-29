@@ -2,6 +2,9 @@
 
 import sqlite3
 import datetime
+import sys
+
+file_name = sys.argv[1]
 
 # hentes fra metadata på sikt
 tablerows = ['date', 'time', 'server', 'alarmID', 'alarmName', 'launchedBy',
@@ -9,7 +12,7 @@ tablerows = ['date', 'time', 'server', 'alarmID', 'alarmName', 'launchedBy',
 
 # Filnavn = dato + klokkeslett
 dateandtime = datetime.datetime.now()
-dbname = (dateandtime.strftime("%d%m%Y_%H-%M-%S"))
+dbname = (dateandtime.strftime(file_name + "_%d%m%Y_%H-%M-%S"))
 conn = sqlite3.connect(dateandtime.strftime(dbname)+".db")
 print("Opened database successfully")
 
@@ -20,7 +23,7 @@ print("Table created successfully")
 
 
 # Leser input-fil og legger alle entries inn i databasen
-with open("eksempel_input.txt", "r", encoding="utf-8") as file:
+with open(file_name, "r", encoding="utf-8") as file:
     line_list = []
     for line in file:
         line_list = [entry.strip() for entry in line.split(",")]
