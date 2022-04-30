@@ -1,0 +1,26 @@
+Date, Time, Server Name, Alarm Key, Alarm Name, Launched by, Alarm Status, Alarm Group, General Text Message, Display Message 1, Display Message 2, Alarm Reference, Executed Time, Name, Phone Number, Phone Type, Call Status
+31.03.2022, 21:34:45, MC-HOVSETER, 2942, Borte 428, 428, Canceled, Empty group, No message for alarm 2942, 428, 428, 62460254, 01:00:00, , , , No Answer
+31.03.2022, 21:34:43, MC-HOVSETER, 2927, Tilstede 428, 428, Canceled, Empty group, No message for alarm 2927, 428, 428, 62460252, 01:00:00, , , , No Answer
+31.03.2022, 21:34:25, MC-HOVSETER, 2957, Anrop 428, 428, Done, 22 Hovseterhjemmet 4A, No message for alarm 2957, 428, 428, 6246023A, 21:34:27, Shuttle 4. etg, 10.10.10.44, IND, Executed
+31.03.2022, 21:34:25, MC-HOVSETER, 2957, Anrop 428, 428, Done, 22 Hovseterhjemmet 4A, No message for alarm 2957, 428, 428, 6246023A, 21:34:26, Hovseterhjemmet-24 Oslofjorden-4, 46865912, 3G+, Executed
+31.03.2022, 21:34:25, MC-HOVSETER, 2957, Anrop 428, 428, Done, 22 Hovseterhjemmet 4A, No message for alarm 2957, 428, 428, 6246023A, 21:34:26, Hovseterhjemmet-23 Oslofjorden-4, 46859609, 3G+, Rejected
+31.03.2022, 21:01:17, MC-HOVSETER, 2942, Borte 428, 428, Canceled, Empty group, No message for alarm 2942, 428, 428, 6245FA7C, 01:00:00, , , , No Answer
+31.03.2022, 21:01:16, MC-HOVSETER, 2927, Tilstede 428, 428, Canceled, Empty group, No message for alarm 2927, 428, 428, 6245FA7B, 01:00:00, , , , No Answer
+31.03.2022, 20:59:10, MC-HOVSETER, 2987, Toalett 428, 428, Done, 22 Hovseterhjemmet 4A, No message for alarm 2987, 428, 428, 6245F9F4, 20:59:12, Shuttle 4. etg, 10.10.10.44, IND, Executed
+31.03.2022, 20:59:10, MC-HOVSETER, 2987, Toalett 428, 428, Done, 22 Hovseterhjemmet 4A, No message for alarm 2987, 428, 428, 6245F9F4, 20:59:12, Hovseterhjemmet-23 Oslofjorden-4, 46859609, 3G+, Executed
+31.03.2022, 20:59:10, MC-HOVSETER, 2987, Toalett 428, 428, Done, 22 Hovseterhjemmet 4A, No message for alarm 2987, 428, 428, 6245F9F4, 20:59:13, Hovseterhjemmet-24 Oslofjorden-4, 46865912, 3G+, Executed
+31.03.2022, 19:59:31, MC-HOVSETER, 2945, Borte 434, 434, Canceled, Empty group, No message for alarm 2945, 434, 434, 6245EC02, 01:00:00, , , , No Answer
+31.03.2022, 19:56:03, MC-HOVSETER, 2930, Tilstede 434, 434, Canceled, Empty group, No message for alarm 2930, 434, 434, 6245EB32, 01:00:00, , , , No Answer
+31.03.2022, 19:54:24, MC-HOVSETER, 2945, Borte 434, 434, Canceled, Empty group, No message for alarm 2945, 434, 434, 6245EACF, 01:00:00, , , , No Answer
+31.03.2022, 19:54:22, MC-HOVSETER, 2930, Tilstede 434, 434, Canceled, Empty group, No message for alarm 2930, 434, 434, 6245EACD, 01:00:00, , , , No Answer
+31.03.2022, 19:53:36, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245EA9A, 19:53:38, Hovseterhjemmet-23 Oslofjorden-4, 46859609, 3G+, Executed
+31.03.2022, 19:53:36, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245EA9A, 19:53:38, Shuttle 4. etg, 10.10.10.44, IND, Executed
+31.03.2022, 19:53:36, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245EA9A, 19:53:40, Hovseterhjemmet-24 Oslofjorden-4, 46865912, 3G+, Executed
+31.03.2022, 19:50:01, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245E9C2, 19:50:02, Hovseterhjemmet-24 Oslofjorden-4, 46865912, 3G+, Executed
+31.03.2022, 19:50:01, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245E9C2, 19:50:02, Hovseterhjemmet-23 Oslofjorden-4, 46859609, 3G+, Executed
+31.03.2022, 19:50:01, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245E9C2, 19:50:03, Shuttle 4. etg, 10.10.10.44, IND, Executed
+31.03.2022, 19:35:20, MC-HOVSETER, 2945, Borte 434, 434, Canceled, Empty group, No message for alarm 2945, 434, 434, 6245E657, 01:00:00, , , , No Answer
+31.03.2022, 19:26:38, MC-HOVSETER, 2930, Tilstede 434, 434, Canceled, Empty group, No message for alarm 2930, 434, 434, 6245E44D, 01:00:00, , , , No Answer
+31.03.2022, 19:25:54, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245E41C, 19:25:56, Shuttle 4. etg, 10.10.10.44, IND, Executed
+31.03.2022, 19:25:54, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245E41C, 19:25:56, Hovseterhjemmet-24 Oslofjorden-4, 46865912, 3G+, Executed
+31.03.2022, 19:25:54, MC-HOVSETER, 2960, Anrop 434, 434, Done, 22 Hovseterhjemmet 4A, No message for alarm 2960, 434, 434, 6245E41C, 19:25:56, Hovseterhjemmet-23 Oslofjorden-4, 46859609, 3G+, Rejected
