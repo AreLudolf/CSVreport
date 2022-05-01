@@ -4,9 +4,8 @@ import sqlite3
 import datetime
 import sys
 
-file_name = sys.argv[1]
-#file_name = "ex_meta.csv"
-# hentes fra metadata på sikt
+#file_name = sys.argv[1]
+file_name = "ex_meta.csv"
 
 # Filnavn = dato + klokkeslett
 dateandtime = datetime.datetime.now()
@@ -27,13 +26,12 @@ print("Table created successfully")
 
 # Leser input-fil og legger alle entries inn i databasen
 with open(file_name, "r", encoding="utf-8") as file:
-    line_list = []
     for line in file:
         line_list = [entry.strip() for entry in line.split(",")]
-        cursor.execute('''INSERT INTO ALARM (Alarm_Reference) VALUES(?) ''', [line_list[11]])
-        for i in range(len(line_list)):
-            cursor.execute('''UPDATE ALARM SET (%s) = (?) 
-            WHERE Alarm_Reference == ("%s");''' % (meta[i], line_list[11]), [line_list[i]])
+        values = ','.join(['?'] * len(line_list))
+        cursor.execute('''INSERT INTO ALARM ({}) VALUES({}) '''.format(", ".join(meta), values), line_list)
+
+
 print("Entries added to database")
 
 conn.commit()
@@ -41,8 +39,8 @@ conn.commit()
 # hente ut fil uten canceled status med mindre det er tilstede og borte
 cursor.execute('''SELECT Date, Time, Alarm_Name, Alarm_Status FROM ALARM 
 WHERE Alarm_Status != "Canceled" OR Alarm_Group = "Empty group"''')
-
 queryResult = cursor.fetchall()
+#skriver til fil
 outputFile = open(dbname + "_output.csv", "a")
 for row in queryResult:
     outputFile.write(', '.join(row) + '\n')
