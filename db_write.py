@@ -4,8 +4,8 @@ import sqlite3
 import datetime
 import sys
 
-#file_name = sys.argv[1]
-file_name = "ex_meta.csv"
+file_name = sys.argv[1]
+#file_name = "ex_meta.csv"
 
 # Filnavn = dato + klokkeslett
 dateandtime = datetime.datetime.now()
