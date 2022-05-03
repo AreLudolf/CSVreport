@@ -53,7 +53,7 @@ cursor.execute('''SELECT Date, Time, Alarm_Name FROM ALARM
 WHERE Alarm_Status != "Canceled" OR Alarm_Group = "Empty group"''')
 responsQuery = cursor.fetchall()
 #MÅ DATABASEN LESES BAKLENGS?
-active_alarm = [("", "", "")]
+active_alarm = [("Date", "Time", "Alarm Name")]
 for row in responsQuery:
     alarmType = row[2].split(" ")
     alarmName = row[2]
@@ -61,9 +61,16 @@ for row in responsQuery:
 
     if alarmType[0] not in tilstedeBorte:
         for i in active_alarm:
-            if alarmName not in i[2]:
-                active_alarm.append(row)
-                print("Append!")
+            if alarmName in i[2]:
+                entryExist = True
+
+        if entryExist == False:
+            active_alarm.append(row)
+            print("Append!")
+        if entryExist == True:
+            entryExist = False
+            print("Ikke Append!")
+
 
     if alarmType[0] in tilstedeBorte and alarmType in active_alarm:
         print("Tilstedealarm!!")
