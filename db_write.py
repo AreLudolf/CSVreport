@@ -4,8 +4,8 @@ import sqlite3
 import datetime
 import sys
 
-file_name = sys.argv[1]
-#file_name = "ex_meta.csv"
+#file_name = sys.argv[1]
+file_name = "ex_meta.csv"
 
 # Filnavn = dato + klokkeslett
 dateandtime = datetime.datetime.now()
@@ -60,23 +60,20 @@ for row in responsQuery:
     tilstedeBorte = ["Tilstede", "Borte"]
 
     if alarmType[0] not in tilstedeBorte:
-        for i in range(0, len(active_alarm)):
-            print(i)
-            for entry in (active_alarm[i - 1]):
-                if alarmName not in entry:
-                    active_alarm.append(row)
-                    print("active_alarm[i]: ", active_alarm[i])
+        for i in active_alarm:
+            if alarmName not in i[2]:
+                active_alarm.append(row)
+                print("Append!")
 
-    if alarmType[0] in tilstedeBorte:
-        if alarmType in active_alarm:
-            print("Tilstedealarm!!")
-            #alarmTid = datetime.datetime()
-            #tilstedeTid = datetime.datetime(row[0], row[1])
-            #tdelta = tilstedeTid - alarmTid
-            #print("Responstid på " + row + "=" + tdelta)
-            for item in active_alarm:
-                if item is alarmType[1]:
-                    del active_alarm[item]
+    if alarmType[0] in tilstedeBorte and alarmType in active_alarm:
+        print("Tilstedealarm!!")
+        #alarmTid = datetime.datetime()
+        #tilstedeTid = datetime.datetime(row[0], row[1])
+        #tdelta = tilstedeTid - alarmTid
+        #print("Responstid på " + row + "=" + tdelta)
+        for item in active_alarm:
+            if item is alarmType[1]:
+                del active_alarm[item]
 
 print(active_alarm)
 
