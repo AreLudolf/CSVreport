@@ -48,5 +48,37 @@ print("Cleaned up csv written to file: " + dbname + "_output.csv")
 outputFile.close()
 
 
+#regne ut responstid:
+cursor.execute('''SELECT Date, Time, Alarm_Name FROM ALARM
+WHERE Alarm_Status != "Canceled" OR Alarm_Group = "Empty group"''')
+responsQuery = cursor.fetchall()
+#MÅ DATABASEN LESES BAKLENGS?
+active_alarm = [("", "", "")]
+for row in responsQuery:
+    alarmType = row[2].split(" ")
+    alarmName = row[2]
+    tilstedeBorte = ["Tilstede", "Borte"]
+
+    if alarmType[0] not in tilstedeBorte:
+        for i in range(0, len(active_alarm)):
+            print(i)
+            for entry in (active_alarm[i - 1]):
+                if alarmName not in entry:
+                    active_alarm.append(row)
+                    print("active_alarm[i]: ", active_alarm[i])
+
+    if alarmType[0] in tilstedeBorte:
+        if alarmType in active_alarm:
+            print("Tilstedealarm!!")
+            #alarmTid = datetime.datetime()
+            #tilstedeTid = datetime.datetime(row[0], row[1])
+            #tdelta = tilstedeTid - alarmTid
+            #print("Responstid på " + row + "=" + tdelta)
+            for item in active_alarm:
+                if item is alarmType[1]:
+                    del active_alarm[item]
+
+print(active_alarm)
+
 cursor.close()
 print("Closed database")
