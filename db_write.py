@@ -52,13 +52,13 @@ outputFile.close()
 cursor.execute('''SELECT Date, Time, Alarm_Name FROM ALARM
 WHERE Alarm_Status != "Canceled" OR Alarm_Group = "Empty group"''')
 responsQuery = cursor.fetchall()
-#MÅ DATABASEN LESES BAKLENGS?
+responsQuery.reverse()
 active_alarm = [("Date", "Time", "Alarm Name")]
 for row in responsQuery:
     alarmType = row[2].split(" ")
     alarmName = row[2]
     tilstedeBorte = ["Tilstede", "Borte"]
-
+    entryExist = False
     if alarmType[0] not in tilstedeBorte:
         for i in active_alarm:
             if alarmName in i[2]:
@@ -66,21 +66,26 @@ for row in responsQuery:
 
         if entryExist == False:
             active_alarm.append(row)
-            print("Append!")
+
         if entryExist == True:
             entryExist = False
-            print("Ikke Append!")
 
 
-    if alarmType[0] in tilstedeBorte and alarmType in active_alarm:
-        print("Tilstedealarm!!")
-        #alarmTid = datetime.datetime()
-        #tilstedeTid = datetime.datetime(row[0], row[1])
-        #tdelta = tilstedeTid - alarmTid
-        #print("Responstid på " + row + "=" + tdelta)
-        for item in active_alarm:
-            if item is alarmType[1]:
-                del active_alarm[item]
+    if alarmType[0] == "Tilstede":
+        tilstedeTid = (row[0], row[1])
+        tilstedeTidStr = datetime.datetime.strptime(' '.join(tilstedeTid), "%d.%m.%Y %H:%M:%S")
+
+        for i in active_alarm:
+            roomNr = i[2].split(" ")
+            if alarmType[1] in roomNr:
+                alarmTime = (i[0], i[1])
+                alarmTimeStr = datetime.datetime.strptime(' '.join(alarmTime), "%d.%m.%Y %H:%M:%S")
+                tdelta = tilstedeTidStr - alarmTimeStr
+                active_alarm_type = i[2]
+                print("Responstid på alarm", active_alarm_type, ": ", tdelta)
+                active_alarm.remove(i)
+
+
 
 print(active_alarm)
 
