@@ -12,7 +12,7 @@ dbname = ''
 file_name = ''
 labeltext = ''
 
-enda en endring her??
+
 def read_to_db():
     global file_name
     global dbname
@@ -58,7 +58,6 @@ def clean_to_csv():
     for row in queryResult:
         outputFile.write(', '.join(row) + '\n')
         print(', '.join(row) + '\n')
-        text_area.insert(tk.INSERT, row)
     print("Cleaned up csv written to file: " + dbname + "_output.csv")
     outputFile.close()
 
@@ -156,7 +155,6 @@ submit_button = ttk.Button(
     text='Submit',
     command=read_to_db
 )
-
 submit_button.pack(ipadx=1, ipady=0)
 
 hitit_button = ttk.Button(
@@ -167,57 +165,3 @@ hitit_button = ttk.Button(
 hitit_button.pack()
 
 root.mainloop()
-test = tk.Tk()
-window_width = 900
-window_height = 300
-screen_width = test.winfo_screenwidth()
-screen_height = test.winfo_screenheight()
-center_x = int(screen_width/2 - window_width / 2)
-center_y = int(screen_height/2 - window_height / 2)
-
-# set the position of the window to the center of the screen
-test.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
-test.resizable(height=False, width=False)
-treeview_frame = tk.Frame(test, background="#FFF0C1", bd=1)
-graph_frame = tk.Frame(test, background="#D2E2FB", bd=1, relief="sunken")
-text_frame = tk.Frame(test, background="#CCE4CA", bd=1, relief="sunken")
-button_frame = tk.Frame(test, background="#F5C2C1", bd=1, relief="sunken")
-
-treeview_frame.grid(row=0, column=0, sticky="nsew", padx=1, pady=1)
-graph_frame.grid(row=1, column=0, sticky="nsew", padx=2, pady=2)
-text_frame.grid(row=0, column=1, rowspan=2, sticky="nsew", padx=2, pady=2)
-button_frame.grid(row=0, column=2, rowspan=2, sticky="nsew", padx=2, pady=2)
-
-test.grid_rowconfigure(0, weight=3)
-test.grid_rowconfigure(1, weight=2)
-
-test.grid_columnconfigure(0, weight=3)
-test.grid_columnconfigure(1, weight=2)
-test.grid_columnconfigure(2, weight=2)
-
-sb = ttk.Scrollbar(text_frame)
-sb.pack(side="right", fill="y")
-
-open_button = ttk.Button(
-    treeview_frame,
-    text='Open a File',
-    command=select_file
-)
-
-open_button.pack()
-
-submit_button = ttk.Button(
-    treeview_frame,
-    text='Submit',
-    command=read_to_db
-)
-
-submit_button.pack()
-
-hitit_button = ttk.Button(
-    treeview_frame,
-    text='Hit it!',
-    command=clean_to_csv
-)
-hitit_button.pack()
-test.mainloop()
