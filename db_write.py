@@ -11,12 +11,8 @@ cursor = ''
 dbname = ''
 file_name = ''
 labeltext = ''
-#Hello GIT IS WORKING
-#THIS LINE IS NOT ON GIT
-#what?
-def new_fuction_to_github
-    print("How the heckerooni does it push to branch!")
 
+enda en endring her??
 def read_to_db():
     global file_name
     global dbname
