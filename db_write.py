@@ -15,6 +15,7 @@ dbname = ''
 file_name = ''
 labeltext = ''
 
+enda en endring her??
 def read_to_db():
     global file_name
     global dbname
