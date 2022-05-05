@@ -12,9 +12,10 @@ dbname = ''
 file_name = ''
 labeltext = ''
 
+
 def read_to_db():
 #file_name = sys.argv[1]
-
+    global file_name
 # Filnavn = dato + klokkeslett
     dateandtime = datetime.datetime.now()
     dbname = (dateandtime.strftime(file_name + "_%d%m%Y_%H-%M-%S"))
@@ -27,6 +28,7 @@ def read_to_db():
         meta = [entry.strip().replace(" ", "_") for entry in firstline.split(",")]
 
 # Oppretter tabell
+    global cursor
     cursor = conn.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS ALARM (%s)" % ", ".join(meta))
     print("Table created successfully")
@@ -46,13 +48,15 @@ def read_to_db():
 
 # hente ut fil uten canceled status med mindre det er tilstede og borte
 def clean_to_csv():
+    global cursor
     cursor.execute('''SELECT Date, Time, Alarm_Name, Alarm_Status FROM ALARM 
     WHERE Alarm_Status != "Canceled" OR Alarm_Group = "Empty group"''')
     queryResult = cursor.fetchall()
     #skriver til fil
     outputFile = open(dbname + "_output.csv", "a")
     for row in queryResult:
-     outputFile.write(', '.join(row) + '\n')
+        outputFile.write(', '.join(row) + '\n')
+        print(', '.join(row) + '\n')
     print("Cleaned up csv written to file: " + dbname + "_output.csv")
     outputFile.close()
 
@@ -123,7 +127,7 @@ def select_file():
         ('text files', '*.txt'),
         ('CSV files', '*.csv')
     )
-
+    global file_name
     file_name = fd.askopenfilename(
         title='Open a file',
         initialdir='/',
@@ -132,11 +136,7 @@ def select_file():
     labeltext = file_name
     label = ttk.Label(root, text=labeltext)
     label.pack()
-
-
-
-    open_button.pack(expand=True)
-
+    print(file_name)
 
 # open button
 open_button = ttk.Button(
@@ -144,14 +144,20 @@ open_button = ttk.Button(
     text='Open a File',
     command=select_file
 )
-
 open_button.pack(expand=True)
 
 submit_button = ttk.Button(
     root,
-    text='Process',
-    command=read_to_db()
+    text='Submit',
+    command=read_to_db
 )
 submit_button.pack()
+
+hitit_button = ttk.Button(
+    root,
+    text='Hit it!',
+    command=clean_to_csv
+)
+hitit_button.pack()
 
 root.mainloop()
