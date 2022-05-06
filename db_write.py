@@ -4,8 +4,11 @@ import sqlite3
 import datetime
 import tkinter as tk
 from tkinter import ttk
-from tkinter import filedialog as fd
-from tkinter import scrolledtext as st
+import pandas as pd
+from tkinter import *
+from tkinter import filedialog
+from tkinter import messagebox as msg
+from pandastable import Table
 
 cursor = ''
 dbname = ''
@@ -45,7 +48,7 @@ def read_to_db():
     print("Entries added to database")
 
     conn.commit()
-
+    clean_to_csv()
 
 # hente ut fil uten canceled status med mindre det er tilstede og borte
 def clean_to_csv():
@@ -59,6 +62,16 @@ def clean_to_csv():
         outputFile.write(', '.join(row) + '\n')
         print(', '.join(row) + '\n')
     print("Cleaned up csv written to file: " + dbname + "_output.csv")
+    df = pd.read_csv(file_name)
+    if (len(df) == 0):
+        msg.showinfo('No Rows Selected', 'CSV has no rows')
+    else:
+
+        # saves in the current directory
+        with pd.ExcelWriter('{}.xlsx'.format(dbname)) as writer:
+            df.to_excel(writer, 'Alarm')
+            writer.save()
+            msg.showinfo('Excel file ceated', 'Excel File created and database created')
     outputFile.close()
 
 
@@ -129,39 +142,120 @@ def select_file():
 '''
 -----------------------------------GUI----------------------------------
 '''
-root = tk.Tk()
-root.title('CSV-rapportfikser')
+class csv_to_excel:
 
-window_width = 900
-window_height = 300
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
-center_x = int(screen_width/2 - window_width / 2)
-center_y = int(screen_height/2 - window_height / 2)
+    def __init__(self, root):
 
-# set the position of the window to the center of the screen
-root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+        self.root = root
+        self.file_name = ''
+        self.f = Frame(self.root,
+                       height=200,
+                       width=300)
 
-open_button = ttk.Button(
-    root,
-    text='Open a File',
-    command=select_file
-)
+        # Place the frame on root window
+        self.f.pack()
 
-open_button.pack(ipadx=0, ipady=0, )
+        # Creating label widgets
+        self.message_label = Label(self.f,
+                                   text='CSV cleanup',
+                                   fg='Black')
+        self.message_label2 = Label(self.f,
+                                    text='Det spretter opp en melding når den er ferdig å lese filene. Vær litt tålmodig, tjommi!',
+                                    fg='Red')
 
-submit_button = ttk.Button(
-    root,
-    text='Submit',
-    command=read_to_db
-)
-submit_button.pack(ipadx=1, ipady=0)
+        # Buttons
+        self.convert_button = Button(self.f,
+                                     text='Åpne',
+                                     command=self.convert_csv_to_xls)
+        self.display_button = Button(self.f,
+                                     text='Cleanup',
+                                     command=self.display_xls_file)
+        self.exit_button = Button(self.f,
+                                  text='Responstid',
+                                  command=response_time)
 
-hitit_button = ttk.Button(
-    root,
-    text='Hit it!',
-    command=clean_to_csv
-)
-hitit_button.pack()
+        # Placing the widgets using grid manager
+        self.message_label.grid(row=1, column=1)
+        self.message_label2.grid(row=2, column=1)
+        self.convert_button.grid(row=3, column=0,
+                                 padx=0, pady=15)
+        self.display_button.grid(row=3, column=1,
+                                 padx=10, pady=15)
+        self.exit_button.grid(row=3, column=2,
+                              padx=10, pady=15)
 
+    def convert_csv_to_xls(self):
+        try:
+            self.file_name = filedialog.askopenfilename(initialdir='/Desktop',
+                                                        title='Select a CSV file',
+                                                        filetypes=(('CSV file', '*.csv'),
+                                                                   ('Text file', '*.txt'),
+                                                                   ('All files', '*.*')))
+
+            df = pd.read_csv(self.file_name)
+            global file_name
+            file_name = self.file_name
+            read_to_db()
+            # Next - Pandas DF to Excel file on disk
+            if (len(df) == 0):
+                msg.showinfo('No Rows Selected', 'CSV has no rows')
+            else:
+
+                # saves in the current directory
+                with pd.ExcelWriter('{}.xlsx'.format(file_name)) as writer:
+                    df.to_excel(writer, 'Alarm')
+                    writer.save()
+                    msg.showinfo('Excel file ceated', 'Excel File created and database created')
+
+            # Now display the DF in 'Table' object
+            # under'pandastable' module
+            self.f2 = Frame(self.root, height=200, width=300)
+            self.f2.pack(fill=BOTH, expand=1)
+            self.table = Table(self.f2, dataframe=df, read_only=True)
+            self.table.show()
+
+        except FileNotFoundError as e:
+            msg.showerror('Error in opening file', e)
+
+    def display_xls_file(self):
+        try:
+            csv_file_name = dbname + "_output.csv"
+            df = pd.read_csv(csv_file_name)
+            if (len(df) == 0):
+                msg.showinfo('No Rows Selected', 'CSV has no rows')
+            else:
+
+                # saves in the current directory
+                with pd.ExcelWriter('{}_output.xlsx'.format(dbname)) as writer:
+                    df.to_excel(writer, 'Alarm')
+                    writer.save()
+                    msg.showinfo('Rensket', 'Rensket excel-fil mekket: {}_output.xlsx'.format(dbname))
+
+            self.file_name = dbname + '_output.xlsx'
+            df = pd.read_excel(self.file_name)
+
+            if (len(df) == 0):
+                msg.showinfo('No records', 'No records')
+            else:
+                pass
+
+            # Now display the DF in 'Table' object
+            # under'pandastable' module
+            self.f2.grid_forget()
+            self.f2 = Frame(self.root, height=200, width=300)
+            self.f2.pack(fill=BOTH, expand=1)
+            self.table = Table(self.f2, dataframe=df, read_only=True)
+            self.table.show()
+
+        except FileNotFoundError as e:
+            print(e)
+            msg.showerror('Error in opening file', e)
+
+
+# Driver Code
+root = Tk()
+root.title('GFG---Convert CSV to Excel File')
+
+obj = csv_to_excel(root)
+root.geometry('800x600')
 root.mainloop()
