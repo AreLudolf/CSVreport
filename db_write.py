@@ -15,7 +15,7 @@ dbname = ''
 file_name = ''
 labeltext = ''
 
-
+#DETTE ER EN TESTMELDING TIL GIT
 def read_to_db():
     global file_name
     global dbname
