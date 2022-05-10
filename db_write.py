@@ -77,16 +77,20 @@ def clean_to_csv():
 
 #regne ut responstid:
 def response_time():
+    global file_name
+    global dbname
     cursor.execute('''SELECT Date, Time, Alarm_Name FROM ALARM
     WHERE Alarm_Status != "Canceled" OR Alarm_Group = "Empty group"''')
     responsQuery = cursor.fetchall()
     responsQuery.reverse()
     active_alarm = [("Date", "Time", "Alarm Name")]
+    response_file = open(dbname + '_responstid.csv', 'w')
     for row in responsQuery:
         alarmType = row[2].split(" ")
         alarmName = row[2]
         tilstedeBorte = ["Tilstede", "Borte"]
         entryExist = False
+
         if alarmType[0] not in tilstedeBorte:
             for i in active_alarm:
                 if alarmName in i[2]:
@@ -96,6 +100,7 @@ def response_time():
                 active_alarm.append(row)
 
             if entryExist == True:
+
                 entryExist = False
 
         if alarmType[0] == "Tilstede":
@@ -108,35 +113,12 @@ def response_time():
                     alarmTime = (i[0], i[1])
                     alarmTimeStr = datetime.datetime.strptime(' '.join(alarmTime), "%d.%m.%Y %H:%M:%S")
                     tdelta = tilstedeTidStr - alarmTimeStr
-                    active_alarm_type = i[2]
-                    print("Responstid på alarm", active_alarm_type, ": ", tdelta)
+                    write_response = ', '.join(i + (str(tdelta),))
+                    print(write_response)
+                    response_file.write(write_response + '\n')
                     active_alarm.remove(i)
 
-    print(active_alarm)
-
-
-def write_to_scrolled():
-    with open(dbname + "_output.csv", "r", encoding="utf-8") as file:
-        for line in file:
-            text_area.insert(tk.INSERT, line)
-
-
-def select_file():
-    filetypes = (
-        ('All files', '*.*'),
-        ('text files', '*.txt'),
-        ('CSV files', '*.csv')
-    )
-    global file_name
-    file_name = fd.askopenfilename(
-        title='Open a file',
-        initialdir='/',
-        filetypes=filetypes)
-
-    labeltext = file_name
-    label = ttk.Label(root, text=labeltext)
-    label.pack()
-    print(file_name)
+    response_file.close()
 
 
 '''
@@ -160,7 +142,7 @@ class csv_to_excel:
                                    text='CSV cleanup',
                                    fg='Black')
         self.message_label2 = Label(self.f,
-                                    text='Det spretter opp en melding når den er ferdig å lese filene. Vær litt tålmodig, tjommi!',
+                                    text='Det spretter opp en melding når den er ferdig å lese filene.',
                                     fg='Red')
 
         # Buttons
@@ -218,6 +200,7 @@ class csv_to_excel:
             msg.showerror('Error in opening file', e)
 
     def display_xls_file(self):
+        self.table.close()
         try:
             csv_file_name = dbname + "_output.csv"
             df = pd.read_csv(csv_file_name)
@@ -241,7 +224,7 @@ class csv_to_excel:
 
             # Now display the DF in 'Table' object
             # under'pandastable' module
-            self.f2.grid_forget()
+
             self.f2 = Frame(self.root, height=200, width=300)
             self.f2.pack(fill=BOTH, expand=1)
             self.table = Table(self.f2, dataframe=df, read_only=True)
@@ -254,7 +237,7 @@ class csv_to_excel:
 
 # Driver Code
 root = Tk()
-root.title('GFG---Convert CSV to Excel File')
+root.title('CSV converter')
 
 obj = csv_to_excel(root)
 root.geometry('800x600')
