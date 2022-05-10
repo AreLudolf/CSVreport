@@ -14,7 +14,7 @@ cursor = ''
 dbname = ''
 file_name = ''
 labeltext = ''
-
+print('Tester sublime merge')
 #DETTE ER EN TESTMELDING TIL GIT
 def read_to_db():
     global file_name
