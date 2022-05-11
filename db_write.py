@@ -14,8 +14,11 @@ cursor = ''
 dbname = ''
 file_name = ''
 labeltext = ''
-print('Tester sublime merge')
-#DETTE ER EN TESTMELDING TIL GIT
+
+print('Test nr 2 fra ATOM HELLO WERLDEN')
+
+dette er en ny linje som ikke funker
+
 def read_to_db():
     global file_name
     global dbname
