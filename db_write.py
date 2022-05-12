@@ -15,7 +15,7 @@ dbname = ''
 file_name = ''
 labeltext = ''
 
-#DETTE ER EN TESTMELDING TIL GIT
+enda en endring her??
 def read_to_db():
     global file_name
     global dbname
@@ -53,7 +53,7 @@ def read_to_db():
 # hente ut fil uten canceled status med mindre det er tilstede og borte
 def clean_to_csv():
     global cursor
-    cursor.execute('''SELECT Date, Time, Alarm_Name, Alarm_Status FROM ALARM 
+    cursor.execute('''SELECT Date, Time, Alarm_Name, Alarm_Status FROM ALARM
     WHERE Alarm_Status != "Canceled" OR Alarm_Group = "Empty group"''')
     queryResult = cursor.fetchall()
     #skriver til fil
