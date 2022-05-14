@@ -96,19 +96,22 @@ def clean_csv():
     output_file.close()
 
 def show_table(CsvToExcel, df):
-    CsvToExcel.f2 = Frame(CsvToExcel.root, height=200, width=300)
-    CsvToExcel.f2.pack(fill=BOTH, expand=1)
-    CsvToExcel.table = Table(CsvToExcel.f2, dataframe=df, read_only=True)
-    CsvToExcel.table.show()
+    try:
+        CsvToExcel.f2.pack_forget()
+    finally:
+        CsvToExcel.f2 = Frame(CsvToExcel.root, height=200, width=300)
+        CsvToExcel.f2.pack(fill=BOTH, expand=1)
+        CsvToExcel.table = Table(CsvToExcel.f2, dataframe=df, read_only=True)
+        CsvToExcel.table.show()
 
 def response_time():
-    global file_name
     global dbname
+    global file_name
     cursor.execute(response_query)
     query_result = cursor.fetchall()
     query_result.reverse()
     active_alarm = [("Date", "Time", "Alarm Name")]
-    response_file = open(dbname + '_responstid.csv', 'w')
+    response_file = open(dbname + '_responstid.csv', 'a+')
     for row in query_result:
         alarmType = row[2].split(" ")
         alarmName = row[2]
@@ -141,11 +144,15 @@ def response_time():
                     response_file.write(write_response + '\n')
                     active_alarm.remove(i)
     response_file.close()
-    print('RESPONSE_FILE: ', response_file)
-    write_to_xl(response_file)
+    response_file = open(dbname + '_responstid.csv', 'r')
+    write_to_xl(response_file.name)
 
 
 # DELETE RESPONSE_FILE
+
+def show_room():
+    print('Show_room()')
+
 
 
 '''
@@ -154,7 +161,6 @@ def response_time():
 
 
 class CsvToExcel:
-
     def __init__(self, root):
 
         self.root = root
@@ -185,6 +191,9 @@ class CsvToExcel:
         self.exit_button = Button(self.f,
                                   text='Responstid',
                                   command=response_time)
+        self.room_button = Button(self.f,
+                                  text='Vis rom',
+                                  command=show_room)
 
         # Placing the widgets using grid manager
         self.message_label.grid(row=1, column=1)
@@ -192,9 +201,11 @@ class CsvToExcel:
         self.convert_button.grid(row=3, column=0,
                                  padx=0, pady=15)
         self.display_button.grid(row=3, column=1,
-                                 padx=10, pady=15)
+                                 padx=0, pady=15)
         self.exit_button.grid(row=3, column=2,
-                              padx=10, pady=15)
+                              padx=15, pady=15)
+        self.room_button.grid(row=3, column=3,
+                              padx=15, pady=1)
 
 
 
