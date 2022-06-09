@@ -1,3 +1,3 @@
 Reading me, reading you
 
-python3 db_write.py filnavn
+Verktøy for rensking av rapport-filer fra Mobicall Alarm Server
